@@ -19,11 +19,6 @@ import static java.util.Objects.isNull;
 public class NormalChuTi implements ChuTiFunction {
     @Override
     public String print(CountGameContext cxt) {
-        if (isNull(cxt.getScanner())) {
-            log.error("Scanner is null!");
-            cxt.setFinished(true);
-            return "Scanner is null!";
-        }
         return chuTi(cxt);
     }
 

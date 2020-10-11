@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class CountPracticeInputObject {
     private Scanner scanner;
     private int upperBound;
-    private int wanChenShu;
+    private int finishedCount;
     private int totalQuestion;
     private ChuTiType chuTiType;
 }

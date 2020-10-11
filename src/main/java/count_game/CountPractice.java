@@ -37,16 +37,34 @@ public class CountPractice {
         String holder;
         System.out.println("打q退出，点击任意数字继续继续答题！");
         while (!(holder = sc.next()).equals("q")) {
-            countPracticeInputObject = makeInput(sc);
-            setChutiType(holder, countPracticeInputObject);
-            Long begin = System.currentTimeMillis();
-            while (countPracticeInputObject.getWanChenShu() < countPracticeInputObject.getTotalQuestion()) {
-                countGameService.run(countPracticeInputObject);
+            if (holder.equals("20")) {
+                run20(countPracticeInputObject, sc);
+                continue;
             }
-            System.out.println("共用时：" + ((System.currentTimeMillis() - begin) / 1000) + "秒.");
-            System.out.println("打q退出，点击任意数字继续继续答题！");
+            countPracticeInputObject = runNormal(sc, holder);
         }
         System.out.println("Bye!");
+    }
+
+    private static void run20(CountPracticeInputObject countPracticeInputObject, Scanner sc) {
+        countPracticeInputObject = makeInput(sc);
+        countPracticeInputObject.setTotalQuestion(20);
+        while (countPracticeInputObject.getFinishedCount() < countPracticeInputObject.getTotalQuestion()) {
+            countGameService.run_20(countPracticeInputObject);
+        }
+    }
+
+    private static CountPracticeInputObject runNormal(Scanner sc, String holder) {
+        CountPracticeInputObject countPracticeInputObject;
+        countPracticeInputObject = makeInput(sc);
+        setChutiType(holder, countPracticeInputObject);
+        Long begin = System.currentTimeMillis();
+        while (countPracticeInputObject.getFinishedCount() < countPracticeInputObject.getTotalQuestion()) {
+            countGameService.run(countPracticeInputObject);
+        }
+        System.out.println("共用时：" + ((System.currentTimeMillis() - begin) / 1000) + "秒.");
+        System.out.println("打q退出，点击任意数字继续继续答题！");
+        return countPracticeInputObject;
     }
 
     private static void setChutiType(String holder, CountPracticeInputObject countPracticeInputObject) {
@@ -61,7 +79,7 @@ public class CountPractice {
                 .scanner(sc)
                 .totalQuestion(14)
                 .upperBound(11)
-                .wanChenShu(0)
+                .finishedCount(0)
                 .build();
     }
 
