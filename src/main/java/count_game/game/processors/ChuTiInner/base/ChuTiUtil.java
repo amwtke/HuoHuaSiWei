@@ -10,6 +10,10 @@ import java.util.Random;
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ChuTiUtil {
+
+    public static final String PLUS = "+";
+    public static final String MINORS = "-";
+
     public static int genInt(Random random, int maxValue) {
         int ret;
         do {
@@ -48,5 +52,26 @@ public class ChuTiUtil {
         } while ((first - second) >= 10);
         cxt.setCorrectAnswer(first - second);
         return first + "-" + second + "=";
+    }
+
+    public static String genIn20(CountGameContext cxt) {
+        Random r = new Random();
+        int first = genInt(r, 11, 20);
+        String firstSymbol = genInt(r, 1, 10) % 2 == 0 ? PLUS : MINORS;
+        String secondSymbol = firstSymbol.equals(PLUS) ? MINORS : PLUS;
+        int second = genInt(r, 1, 10);
+        int third = genInt(r, 1, 10);
+
+        int correct = 0;
+        String returnStr;
+        if (firstSymbol.equals(PLUS)) {
+            correct = first + second - third;
+            returnStr = first + PLUS + second + MINORS + third + "=";
+        } else {
+            correct = first - second + third;
+            returnStr = first + MINORS + second + PLUS + third + "=";
+        }
+        cxt.setCorrectAnswer(correct);
+        return returnStr;
     }
 }

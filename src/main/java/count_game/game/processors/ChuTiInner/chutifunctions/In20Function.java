@@ -1,4 +1,4 @@
-package count_game.game.processors.ChuTiInner;
+package count_game.game.processors.ChuTiInner.chutifunctions;
 
 import count_game.game.processors.ChuTiInner.base.ChuTiFunction;
 import count_game.game.processors.ChuTiInner.base.ChuTiType;
@@ -8,24 +8,24 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static count_game.game.processors.ChuTiInner.base.ChuTiUtil.genPoShi;
+import static count_game.game.processors.ChuTiInner.base.ChuTiUtil.genIn20;
 
 @Component
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class PoShiFunction implements ChuTiFunction {
+public class In20Function implements ChuTiFunction {
     @Override
     public String print(CountGameContext cxt) {
-        return genPoShi(cxt);
+        return genIn20(cxt);
     }
 
     @Override
     public ChuTiType getType() {
-        return ChuTiType.PO_SHI;
+        return ChuTiType.IN_20;
     }
 
     @Override
     public void setCorrect(CountGameContext cxt) {
-        log.debug("hehe");
+
     }
 }

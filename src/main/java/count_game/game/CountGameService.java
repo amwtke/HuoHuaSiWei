@@ -51,6 +51,16 @@ public class CountGameService {
         countPracticeInputObject.setFinishedCount(countPracticeInputObject.getFinishedCount() + 1);
     }
 
+    public void run_in_20(CountPracticeInputObject countPracticeInputObject) {
+        CountGameContext countGameContext = new CountGameContext();
+        countGameContext.setIgnoreProcessorList(Arrays.asList(ZUO_TI, YAN_ZHENG));
+        countGameContext.setUpperBound(countPracticeInputObject.getUpperBound());
+        countGameContext.setChuTiType(ChuTiType.IN_20);
+        DefaultProcessorResult<Boolean> objectDefaultProcessorResult
+                = defaultProcessorService.runProcessors(processors, countGameContext);
+        countPracticeInputObject.setFinishedCount(countPracticeInputObject.getFinishedCount() + 1);
+    }
+
     private ChuTiType getRandomChutiType() {
         Random random = new Random();
         int index = Math.abs(random.nextInt()) % ChuTiType.totalTypeCount();

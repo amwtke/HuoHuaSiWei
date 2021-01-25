@@ -41,6 +41,10 @@ public class CountPractice {
                 run20(countPracticeInputObject, sc);
                 continue;
             }
+            if (holder.equals("in20")) {
+                runIn20(countPracticeInputObject, sc);
+                continue;
+            }
             countPracticeInputObject = runNormal(sc, holder);
         }
         System.out.println("Bye!");
@@ -51,6 +55,14 @@ public class CountPractice {
         countPracticeInputObject.setTotalQuestion(20);
         while (countPracticeInputObject.getFinishedCount() < countPracticeInputObject.getTotalQuestion()) {
             countGameService.run_20(countPracticeInputObject);
+        }
+    }
+
+    private static void runIn20(CountPracticeInputObject countPracticeInputObject, Scanner sc) {
+        countPracticeInputObject = makeInput(sc);
+        countPracticeInputObject.setTotalQuestion(20);
+        while (countPracticeInputObject.getFinishedCount() < countPracticeInputObject.getTotalQuestion()) {
+            countGameService.run_in_20(countPracticeInputObject);
         }
     }
 

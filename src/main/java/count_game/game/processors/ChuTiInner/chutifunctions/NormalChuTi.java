@@ -1,4 +1,4 @@
-package count_game.game.processors.ChuTiInner;
+package count_game.game.processors.ChuTiInner.chutifunctions;
 
 import count_game.game.processors.ChuTiInner.base.ChuTiFunction;
 import count_game.game.processors.ChuTiInner.base.ChuTiType;

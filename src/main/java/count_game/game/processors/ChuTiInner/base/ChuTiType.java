@@ -7,7 +7,8 @@ public enum ChuTiType {
     NORMAL(0, "10以内加减法"),
     COU_SHI(1, "凑十加法运算"),
     PO_SHI(2, "破十减法运算"),
-    PO_COU_SHI(3, "破凑十混合运算");
+    PO_COU_SHI(3, "破凑十混合运算"),
+    IN_20(4, "20以内的连加连减");
 
     private static final Map<Integer, ChuTiType> MAP = new ConcurrentHashMap<>();
 
