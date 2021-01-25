@@ -56,21 +56,24 @@ public class ChuTiUtil {
 
     public static String genIn20(CountGameContext cxt) {
         Random r = new Random();
-        int first = genInt(r, 11, 20);
-        String firstSymbol = genInt(r, 1, 10) % 2 == 0 ? PLUS : MINORS;
-        String secondSymbol = firstSymbol.equals(PLUS) ? MINORS : PLUS;
-        int second = genInt(r, 1, 10);
-        int third = genInt(r, 1, 10);
-
-        int correct = 0;
         String returnStr;
-        if (firstSymbol.equals(PLUS)) {
-            correct = first + second - third;
-            returnStr = first + PLUS + second + MINORS + third + "=";
-        } else {
-            correct = first - second + third;
-            returnStr = first + MINORS + second + PLUS + third + "=";
-        }
+        int correct = 0;
+        do {
+            int first = genInt(r, 11, 20);
+            String firstSymbol = genInt(r, 1, 10) % 2 == 0 ? PLUS : MINORS;
+            String secondSymbol = firstSymbol.equals(PLUS) ? MINORS : PLUS;
+            int second = genInt(r, 1, 10);
+            int third = genInt(r, 1, 10);
+
+
+            if (firstSymbol.equals(PLUS)) {
+                correct = first + second - third;
+                returnStr = first + PLUS + second + MINORS + third + "=";
+            } else {
+                correct = first - second + third;
+                returnStr = first + MINORS + second + PLUS + third + "=";
+            }
+        } while (correct <= 0);
         cxt.setCorrectAnswer(correct);
         return returnStr;
     }
