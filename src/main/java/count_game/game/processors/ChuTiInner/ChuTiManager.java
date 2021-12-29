@@ -20,7 +20,7 @@ import static org.springframework.util.CollectionUtils.isEmpty;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ChuTiManager {
     private final List<ChuTiFunction> list;
-    private static Map<ChuTiType, ChuTiFunction> MAP = new ConcurrentHashMap<>();
+    private static final Map<ChuTiType, ChuTiFunction> MAP = new ConcurrentHashMap<>();
 
     @PostConstruct
     public void setUpMap() {
