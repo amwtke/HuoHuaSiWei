@@ -65,6 +65,11 @@
             <artifactId>tomcat-annotations-api</artifactId>
             <version>9.0.52</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiaojin</groupId>
+            <artifactId>myluncher</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

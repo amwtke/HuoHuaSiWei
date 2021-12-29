@@ -29,7 +29,7 @@ public class CountPractice {
             log.error("Can't find bean!");
             return;
         }
-
+        log.info("hello");
         System.out.println("Hello Chris!");
         Scanner sc = new Scanner(System.in);
         CountPracticeInputObject countPracticeInputObject = makeInput(sc);
