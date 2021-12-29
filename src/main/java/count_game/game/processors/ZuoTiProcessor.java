@@ -5,8 +5,8 @@ import count_game.game.processors.base.CountGameProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import runtime.processor.annotation.SortOrder;
 import runtime.processor.baseprocessor.ProcessorException;
 
 import static count_game.game.processors.base.GameProcessorPriority.ZUO_TI;
@@ -14,7 +14,7 @@ import static count_game.game.processors.base.GameProcessorPriority.ZUO_TI;
 @Component
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@Order(ZUO_TI)
+@SortOrder(ZUO_TI)
 public class ZuoTiProcessor implements CountGameProcessor {
     @Override
     public void process(CountGameContext ctx) throws ProcessorException {

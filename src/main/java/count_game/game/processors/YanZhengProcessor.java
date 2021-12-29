@@ -5,8 +5,8 @@ import count_game.game.processors.base.CountGameProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import runtime.processor.annotation.SortOrder;
 import runtime.processor.baseprocessor.ProcessorException;
 
 import static count_game.game.processors.base.GameProcessorPriority.YAN_ZHENG;
@@ -14,7 +14,7 @@ import static count_game.game.processors.base.GameProcessorPriority.YAN_ZHENG;
 @Component
 @Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@Order(YAN_ZHENG)
+@SortOrder(YAN_ZHENG)
 public class YanZhengProcessor implements CountGameProcessor {
 
     @Override

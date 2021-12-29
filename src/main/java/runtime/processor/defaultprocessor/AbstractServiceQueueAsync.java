@@ -1,7 +1,7 @@
-package runtime.processor.baseservice;
+package runtime.processor.defaultprocessor;
 
-import runtime.processor.defaultprocessor.DefaultProcessorService;
 import lombok.extern.slf4j.Slf4j;
+import runtime.processor.defaultprocessor.DefaultProcessorService;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -12,7 +12,6 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
-@SuppressWarnings({"PMD.DoNotUseThreads"})
 public abstract class AbstractServiceQueueAsync<T> extends DefaultProcessorService {
     private static final int POLL_WAITING_INTERVAL_MINUTES = 10;
     private static final int QUEUE_EXCEPTION_SLEEP_INTERVAL_MILLIS = 10_000;
