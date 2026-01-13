@@ -31,6 +31,11 @@ public class ZuoTiProcessor implements CountGameProcessor {
         ctx.setDaTi(holder);
     }
 
+    @Override
+    public String getProcessorName() {
+        return "做题processor";
+    }
+
     public static boolean isNumeric(String str) {
         for (int i = 0; i < str.length(); i++) {
             if (!Character.isDigit(str.charAt(i))) {

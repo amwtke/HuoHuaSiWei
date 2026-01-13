@@ -20,9 +20,14 @@ public class YanZhengProcessor implements CountGameProcessor {
     @Override
     public void process(CountGameContext ctx) throws ProcessorException {
         if (ctx.getDaTi() == ctx.getCorrectAnswer()) {
-            ctx.getResult().setResult(true);
+            ctx.getProcessorResult().setResult(true);
         } else {
-            ctx.getResult().setResult(false);
+            ctx.getProcessorResult().setResult(false);
         }
+    }
+
+    @Override
+    public String getProcessorName() {
+        return "验证processor";
     }
 }

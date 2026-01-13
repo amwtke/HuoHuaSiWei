@@ -21,6 +21,6 @@ public class CountGameContext extends DefaultProcessorContext<Boolean> {
 
     public CountGameContext() {
         super();
-        getResult().setResult(true);
+        getProcessorResult().setResult(true);
     }
 }

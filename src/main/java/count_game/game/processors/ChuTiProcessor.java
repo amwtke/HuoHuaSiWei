@@ -30,4 +30,9 @@ public class ChuTiProcessor implements CountGameProcessor {
             System.out.println(chuTiManager.getChuTiFunction(ctx.getChuTiType()).print(ctx));
         }
     }
+
+    @Override
+    public String getProcessorName() {
+        return "出题processor";
+    }
 }
